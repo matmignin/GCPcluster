@@ -1,5 +1,5 @@
 provider "google" {
-  project = "gcpte-248915"
+  project = "var.project_id"
   region = "default"
   zone = "default"
 }
