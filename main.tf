@@ -16,8 +16,14 @@ resource "google_compute_instance" "admin_vm" {
     }
   }
   network_interface {
-    netowrk = "google_compute_network.gcp_demo_vpc.self_link"
+    network = "google_compute_network.gcp_demo_vpc.self_link"
     access_config {
     }
   }
+}
+
+
+resource "google_compute_network" "vpc_network" {
+  name                    = "gcp-network"
+  auto_create_subnetworks = "true"
 }
