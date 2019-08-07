@@ -4,8 +4,6 @@ provider "google" {
   zone    = "us-east1-b"
 }
 
-
-
 resource "google_compute_instance" "admin_vm" {
   name         = "admin-vm"
   machine_type = "f1-micro"
@@ -22,13 +20,8 @@ resource "google_compute_instance" "admin_vm" {
   }
 }
 
-
 resource "google_compute_network" "vpc_network" {
   name                    = "vpc-network"
   auto_create_subnetworks = "true"
 }
 
-resource "google_compute_network" "vpc_network" {
-  name                    = "vpc-network"
-  auto_create_subnetworks = "true"
-}
