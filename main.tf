@@ -1,5 +1,5 @@
 provider "google" {
-  project = "var.project_id"
+  project = var.project_id
   region  = "us-east1"
   zone    = "us-east1-b"
 }
@@ -7,7 +7,7 @@ provider "google" {
 
 
 resource "google_compute_instance" "admin_vm" {
-  name         = "gcp-admin"
+  name         = "admin-vm"
   machine_type = "f1-micro"
 
   boot_disk {
@@ -16,7 +16,7 @@ resource "google_compute_instance" "admin_vm" {
     }
   }
   network_interface {
-    network = "google_compute_network.gcp_demo_vpc.self_link"
+    network = google_compute_network.vpc_network.self_link
     access_config {
     }
   }
@@ -24,6 +24,6 @@ resource "google_compute_instance" "admin_vm" {
 
 
 resource "google_compute_network" "vpc_network" {
-  name                    = "gcp-network"
+  name                    = "vpc-network"
   auto_create_subnetworks = "true"
 }
