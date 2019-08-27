@@ -24,4 +24,8 @@ resource "google_compute_network" "vpc_network" {
   name                    = "vpc-network"
   auto_create_subnetworks = "true"
 }
-
+resource "google_compute_subnetwork" "vpc_subnet" {
+  name          = "vpc-subnet"
+  ip_cidr_range = "10.96.0.0/14"
+  network       = google_compute_network.vpc_network.self_link
+}
