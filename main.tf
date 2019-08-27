@@ -1,8 +1,9 @@
 provider "google" {
-  project = var.project_id
-  region  = "us-east1"
-  zone    = "us-east1-b"
-  version = "~> 2.12"
+  credentials = file("gcp-key.json")
+  project     = var.project_id
+  region      = "us-east1"
+  zone        = "us-east1-b"
+  version     = "~> 2.12"
 }
 
 resource "google_compute_instance" "gcpte_vm" {
