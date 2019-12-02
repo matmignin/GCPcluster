@@ -2,3 +2,4 @@ gcp-key.json
 *.plan
 *.tfstate*
 .terraform
+.DS_Store
